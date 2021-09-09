@@ -77,6 +77,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/p2finger2"
         tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/p1order"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_style"
+        app:layout_constraintEnd_toStartOf="@+id/round"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/p2order"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_style_red"
+        app:layout_constraintStart_toEndOf="@+id/round"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/round"
@@ -84,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/round"
-        android:textColor="@color/black"
+        android:textColor="@color/cardview_dark_background"
         android:textSize="48sp"
         app:layout_constraintEnd_toStartOf="@+id/p2point"
         app:layout_constraintHorizontal_bias="0.498"
@@ -95,9 +117,10 @@
         android:id="@+id/p1point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="24dp"
         android:text="@string/p1point"
+        android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -106,9 +129,10 @@
         android:id="@+id/p2point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="68dp"
         android:text="@string/p2point"
+        android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
