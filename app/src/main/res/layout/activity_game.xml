@@ -77,24 +77,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/p2finger2"
         tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/p1order"
         android:layout_width="20dp"
         android:layout_height="20dp"
 
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/button_style"
         app:layout_constraintEnd_toStartOf="@+id/round"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/p2order"
         android:layout_width="20dp"
         android:layout_height="20dp"
 
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/button_style_red"
         app:layout_constraintStart_toEndOf="@+id/round"
         app:layout_constraintTop_toTopOf="parent"
@@ -136,4 +138,29 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/checkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:text="Check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/reset"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="104dp"
+        android:text="reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937" />
 </androidx.constraintlayout.widget.ConstraintLayout>
