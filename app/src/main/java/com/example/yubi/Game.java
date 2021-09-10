@@ -17,9 +17,11 @@ public class Game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        /////////////// p1 = player1 ///////////////
         TextView p1finger1 = findViewById(R.id.p1finger1);
         TextView p1finger2 = findViewById(R.id.p1finger2);
         TextView p1finger3 = findViewById(R.id.p1finger3);
+        /////////////// p2 = player2 ///////////////
         TextView p2finger1 = findViewById(R.id.p2finger1);
         TextView p2finger2 = findViewById(R.id.p2finger2);
         TextView p2finger3 = findViewById(R.id.p2finger3);
