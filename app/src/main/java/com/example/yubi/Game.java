@@ -2,21 +2,29 @@ package com.example.yubi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Game extends AppCompatActivity {
 
-
+    private Handler mHandler = new Handler();
+    private int mProgressStatus = 0;
+    int nextRound = 5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
         /////////////// p1 = player1 ///////////////
         TextView p1finger1 = findViewById(R.id.p1finger1);
         TextView p1finger2 = findViewById(R.id.p1finger2);
@@ -31,11 +39,17 @@ public class Game extends AppCompatActivity {
         TextView p1order = findViewById(R.id.p1order);
         TextView p2order = findViewById(R.id.p2order);
         Button cbtn = findViewById(R.id.checkButton);
-        Button rbtn = findViewById(R.id.reset);
+        ImageView rbtnImg = findViewById(R.id.resetIcon);
+        ImageView cbtnImg = findViewById(R.id.imageCheckButton);
+        ProgressBar progressBar = findViewById(R.id.progressBar1);
         ArrayList<Integer> p1ArrayList = new ArrayList<>();
         ArrayList<Integer> p2ArrayList = new ArrayList<>();
-        int nextRound = 0;
-        //////////////// player 1 = blue ////////////////
+
+//        gameInit(round, p1ArrayList, p2ArrayList);
+//        while(nextRound != p1ArrayList.size() && nextRound != p2ArrayList.size()) {
+
+
+            //////////////// player 1 = blue ////////////////
             p1finger1.setOnClickListener(view -> {
                 p1ArrayList.add(1);
             });
@@ -45,7 +59,7 @@ public class Game extends AppCompatActivity {
             p1finger3.setOnClickListener(view -> {
                 p1ArrayList.add(3);
             });
-        //////////////// player 2 = red ////////////////
+            //////////////// player 2 = red ////////////////
             p2finger1.setOnClickListener(view -> {
                 p2ArrayList.add(1);
             });
@@ -55,23 +69,37 @@ public class Game extends AppCompatActivity {
             p2finger3.setOnClickListener(view -> {
                 p2ArrayList.add(3);
             });
+//            nextRound++;
+//        }
+        progressBar.setMax(nextRound);
 
-            cbtn.setOnClickListener(view -> {
-                int roundInt;
-                if (p1ArrayList.equals(p2ArrayList)) {
-                    roundInt = 1;
-                } else {
-                    roundInt = -1;
-                }
-                round.setText(String.valueOf(roundInt));
-            });
-            rbtn.setOnClickListener(view -> gameInit(round, p1ArrayList, p2ArrayList));
+        new Thread(() -> {
+            while(p1ArrayList.size() < 100){
+//                mProgressStatus++;
+                android.os.SystemClock.sleep(50);
+                mHandler.post(() -> progressBar.setProgress(p1ArrayList.size()));
+            }
+        }).start();
 
+        arrayListCheck(cbtnImg, p1ArrayList, p2ArrayList, round);
+        rbtnImg.setOnClickListener(view -> gameInit(round, p1ArrayList, p2ArrayList));
+
+    }
+    public void arrayListCheck(ImageView cbtnImg, ArrayList<Integer> p1ArrayList, ArrayList<Integer> p2ArrayList, TextView round){
+        cbtnImg.setOnClickListener(view -> {
+            int roundInt;
+            if (p1ArrayList.equals(p2ArrayList)) {
+                roundInt = 2;
+            } else {
+                roundInt = -2;
+            }
+            round.setText(String.valueOf(roundInt));
+        });
     }
 
     public void gameInit(TextView round, ArrayList<Integer> p2ArrayList, ArrayList<Integer> p1ArrayList){
         p1ArrayList.clear();
         p2ArrayList.clear();
-        round.setText(String.valueOf(0));
+        round.setText(String.valueOf(1));
     }
 }

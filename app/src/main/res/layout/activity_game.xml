@@ -4,15 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    app:layout_anchorGravity="top"
     tools:context=".Game">
+
+    <TextView
+        android:id="@+id/p1finger3"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="52dp"
+
+        android:layout_marginTop="88dp"
+        android:background="@drawable/button_style_bue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p1finger2"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/p1finger1"
         android:layout_width="90dp"
         android:layout_height="90dp"
 
-        android:layout_marginStart="55dp"
-        android:layout_marginBottom="90dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="88dp"
         android:background="@drawable/button_style_bue"
         app:layout_constraintBottom_toTopOf="@+id/p1finger2"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,48 +36,26 @@
         android:id="@+id/p1finger2"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="52dp"
 
         android:background="@drawable/button_style_bue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/p1finger3"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="55dp"
-
-        android:layout_marginTop="90dp"
-        android:background="@drawable/button_style_bue"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/p1finger2"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/p2finger1"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="90dp"
-        android:background="@drawable/button_style_red"
-        app:layout_constraintBottom_toTopOf="@+id/p2finger2"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.543"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/p2finger2"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginEnd="55dp"
+        android:layout_marginEnd="52dp"
 
         android:background="@drawable/button_style_red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.543"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -71,11 +63,23 @@
         android:layout_width="90dp"
         android:layout_height="90dp"
 
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="55dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="52dp"
         android:background="@drawable/button_style_red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/p2finger2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/p2finger1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/button_style_red"
+        app:layout_constraintBottom_toTopOf="@+id/p2finger2"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -83,9 +87,10 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
 
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="88dp"
         android:background="@drawable/button_style_bue"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/round"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -95,9 +100,10 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
 
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_style_red"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/round"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -110,17 +116,17 @@
         android:text="@string/round"
         android:textColor="@color/cardview_dark_background"
         android:textSize="48sp"
-        app:layout_constraintEnd_toStartOf="@+id/p2point"
+        app:layout_constraintEnd_toStartOf="@+id/p2maxround"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toEndOf="@+id/p1point"
+        app:layout_constraintStart_toEndOf="@+id/p1maxround"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/p1point"
+        android:id="@+id/p1maxround"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
         android:text="@string/p1point"
         android:textColor="@color/black"
         android:textSize="34sp"
@@ -128,37 +134,112 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/p2point"
+        android:id="@+id/p2maxround"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="44dp"
         android:text="@string/p2point"
         android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/checkButton"
+    <TextView
+        android:id="@+id/p1point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check"
-        app:layout_constraintBottom_toTopOf="@+id/reset"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/p1point"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toStartOf="@+id/round"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/p2point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/p2point"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/round"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/roundText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/roundText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861"
+        app:layout_constraintTop_toBottomOf="@+id/round" />
+
+
+    <TextView
+        android:id="@+id/pointText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/point"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/round"
+        app:layout_constraintTop_toBottomOf="@+id/p1point"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/reset"
+    <TextView
+        android:id="@+id/pointText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="304dp"
-        android:text="reset"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/point"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/round"
+        app:layout_constraintTop_toBottomOf="@+id/p2point"
+        tools:ignore="MissingConstraints" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="329dp"
+        android:layout_height="29dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageCheckButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundText"
+        app:layout_constraintVertical_bias="0.745"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/resetIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="176dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/p2finger3"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toEndOf="@+id/p1finger3"
+        app:srcCompat="@android:drawable/stat_notify_sync"
+        tools:srcCompat="@android:drawable/ic_popup_sync" />
+
+    <ImageView
+        android:id="@+id/imageCheckButton"
+        android:layout_width="82dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/resetIcon"
+        app:layout_constraintEnd_toStartOf="@+id/p2finger3"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toEndOf="@+id/p1finger3"
+        app:layout_constraintTop_toBottomOf="@+id/roundText"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/check_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
