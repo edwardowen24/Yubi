@@ -219,15 +219,13 @@
 
     <ImageView
         android:id="@+id/resetIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="176dp"
+        android:layout_width="39dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="128dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/p2finger3"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toEndOf="@+id/p1finger3"
-        app:srcCompat="@android:drawable/stat_notify_sync"
-        tools:srcCompat="@android:drawable/ic_popup_sync" />
+        app:srcCompat="@drawable/reset" />
 
     <ImageView
         android:id="@+id/imageCheckButton"

@@ -38,7 +38,6 @@ public class Game extends AppCompatActivity {
         TextView round = findViewById(R.id.round);
         TextView p1order = findViewById(R.id.p1order);
         TextView p2order = findViewById(R.id.p2order);
-        Button cbtn = findViewById(R.id.checkButton);
         ImageView rbtnImg = findViewById(R.id.resetIcon);
         ImageView cbtnImg = findViewById(R.id.imageCheckButton);
         ProgressBar progressBar = findViewById(R.id.progressBar1);
