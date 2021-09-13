@@ -39,7 +39,8 @@ public class Game extends AppCompatActivity {
         TextView p1order = findViewById(R.id.p1order);
         TextView p2order = findViewById(R.id.p2order);
         ImageView rbtnImg = findViewById(R.id.resetIcon);
-        ImageView cbtnImg = findViewById(R.id.imageCheckButton);
+        ImageView checkButtonImg = findViewById(R.id.imageCheckButton);
+        TextView clickCheck = findViewById(R.id.clickCheck);
         ProgressBar progressBar = findViewById(R.id.progressBar1);
         ArrayList<Integer> p1ArrayList = new ArrayList<>();
         ArrayList<Integer> p2ArrayList = new ArrayList<>();
@@ -80,12 +81,12 @@ public class Game extends AppCompatActivity {
             }
         }).start();
 
-        arrayListCheck(cbtnImg, p1ArrayList, p2ArrayList, round);
+        arrayListCheck(checkButtonImg, p1ArrayList, p2ArrayList, round);
         rbtnImg.setOnClickListener(view -> gameInit(round, p1ArrayList, p2ArrayList));
 
     }
-    public void arrayListCheck(ImageView cbtnImg, ArrayList<Integer> p1ArrayList, ArrayList<Integer> p2ArrayList, TextView round){
-        cbtnImg.setOnClickListener(view -> {
+    public void arrayListCheck(ImageView checkButtonImg, ArrayList<Integer> p1ArrayList, ArrayList<Integer> p2ArrayList, TextView round){
+        checkButtonImg.setOnClickListener(view -> {
             int roundInt;
             if (p1ArrayList.equals(p2ArrayList)) {
                 roundInt = 2;
