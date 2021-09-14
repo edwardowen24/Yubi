@@ -19,8 +19,9 @@ import java.util.ArrayList;
 public class Game extends AppCompatActivity {
 
     private final Handler mHandler = new Handler();
-    int nextRound = 1;
-    boolean orderCheck = true, isOrderCheck = true;
+    int nextRound = 1, orderCheckInt = 0;
+    boolean orderCheck = true;
+    boolean isOrderCheck = true;
     int p1pointInt = 0, p2pointInt = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +76,13 @@ public class Game extends AppCompatActivity {
 //            nextRound++;
 //        }
 
-            progressBar(progressBar, p1ArrayList, p2ArrayList, orderCheck);
+        orderCheck = setOrderCheck(p1order, p2order);
 
-            arrayListCheck(wrong, correct, checkButtonImg, p1ArrayList, p2ArrayList, orderCheck, p1point, p2point);
+        progressBar(progressBar, p1ArrayList, p2ArrayList, orderCheck);
 
-            rbtnImg.setOnClickListener(view -> reset(p1ArrayList, p2ArrayList));
+        arrayListCheck(wrong, correct, checkButtonImg, p1ArrayList, p2ArrayList, p1point, p2point, p1order, p2order);
 
+        rbtnImg.setOnClickListener(view -> reset(p1ArrayList, p2ArrayList));
 
 
 //        orderCheck = setOrderCheck(isOrderCheck);
@@ -107,33 +109,51 @@ public class Game extends AppCompatActivity {
     }
 
     @SuppressLint("ResourceAsColor")
-    public void arrayListCheck(MediaPlayer wrong, MediaPlayer correct, ImageView checkButtonImg, ArrayList<Integer> p1ArrayList, ArrayList<Integer> p2ArrayList, boolean orderCheck, TextView p1point, TextView p2point){
+    public void arrayListCheck(MediaPlayer wrong, MediaPlayer correct, ImageView checkButtonImg, ArrayList<Integer> p1ArrayList, ArrayList<Integer> p2ArrayList, TextView p1point, TextView p2point, TextView p1order, TextView p2order){
+
         checkButtonImg.setOnClickListener(view -> {
             boolean correctMp3;
+            orderCheckInt++;
+            orderCheck = setOrderCheck(p1order, p2order);
+            isOrderCheck = orderCheck;
             if (p1ArrayList.equals(p2ArrayList)) {
                 correctMp3 = true;
-                if(orderCheck){
-                    p1pointInt += 1;
-                    p1point.setText(String.valueOf(p1pointInt));
-                }else{
+                if(!isOrderCheck){
                     p2pointInt += 1;
-                    p2point.setText(String.valueOf(p2pointInt));
+                }else{
+                    p1pointInt += 1;
                 }
             } else {
                 correctMp3 = false;
+                if(!isOrderCheck){
+                    p1pointInt += 1;
+                }else{
+                    p2pointInt += 1;
+                }
             }
+            p1point.setText(String.valueOf(p1pointInt));
+            p2point.setText(String.valueOf(p2pointInt));
             if(correctMp3){
                 correct.start();
             }else{
                 wrong.start();
             }
+            reset(p1ArrayList, p2ArrayList);
         });
     }
     public void nextRound(){
 
     }
-    public boolean setOrderCheck(boolean isOrderCheck){
-        orderCheck = isOrderCheck;
+    public boolean setOrderCheck(TextView p1order,TextView p2order){
+        if(orderCheckInt % 2 == 1){
+            orderCheck = false;
+            p2order.setVisibility(View.VISIBLE);
+            p1order.setVisibility(View.INVISIBLE);
+        }else{
+            orderCheck = true;
+            p1order.setVisibility(View.VISIBLE);
+            p2order.setVisibility(View.INVISIBLE);
+        }
         return orderCheck;
     }
     public void point(){
