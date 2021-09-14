@@ -124,10 +124,10 @@
 
     <TextView
         android:id="@+id/p1point"
-        android:layout_width="35dp"
+        android:layout_width="45dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="75dp"
         android:text="@string/p1point"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -137,9 +137,9 @@
 
     <TextView
         android:id="@+id/p2point"
-        android:layout_width="35dp"
+        android:layout_width="45dp"
         android:layout_height="40dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="75dp"
         android:layout_marginTop="20dp"
         android:text="@string/p2point"
         android:textAlignment="center"
@@ -185,31 +185,41 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/clickCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/round"
+        android:id="@+id/winner"
+        android:layout_width="143dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="120dp"
+        android:text="@string/winner"
+        android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
-        android:textSize="48sp"
+        android:textSize="24sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar1"
         app:layout_constraintEnd_toStartOf="@+id/p2finger1"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toEndOf="@+id/p1finger1"
-        app:layout_constraintTop_toBottomOf="@+id/roundText"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintTop_toBottomOf="@+id/roundText" />
 
     <ProgressBar
         android:id="@+id/progressBar1"
-        style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
-        android:layout_width="134dp"
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="120dp"
         android:indeterminateBehavior="cycle"
-        app:layout_constraintBottom_toTopOf="@+id/imageCheckButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:rotationY="180"
+        app:layout_constraintEnd_toStartOf="@+id/progressBar2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:indeterminateBehavior="cycle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.831"
+        app:layout_constraintStart_toEndOf="@+id/progressBar1"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -217,23 +227,82 @@
         android:layout_width="82dp"
         android:layout_height="85dp"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/resetIcon"
+        app:layout_constraintBottom_toTopOf="@+id/resetIconBlue"
         app:layout_constraintEnd_toStartOf="@+id/p2finger3"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toEndOf="@+id/p1finger3"
         app:layout_constraintTop_toBottomOf="@+id/roundText"
-        app:layout_constraintVertical_bias="0.939"
+        app:layout_constraintVertical_bias="0.793"
         app:srcCompat="@drawable/checkbutton" />
 
     <ImageView
-        android:id="@+id/resetIcon"
+        android:id="@+id/resetIconBlue"
         android:layout_width="39dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="TODO"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/p2finger3"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toEndOf="@+id/p1finger3"
-        app:srcCompat="@drawable/reset"
-        android:contentDescription="TODO" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p1finger3"
+        app:srcCompat="@drawable/reset" />
+
+    <ImageView
+        android:id="@+id/gameReset"
+        android:layout_width="39dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageCheckButton"
+        app:layout_constraintVertical_bias="0.454"
+        app:srcCompat="@drawable/reset" />
+
+    <ImageView
+        android:id="@+id/resetIconRed"
+        android:layout_width="39dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="TODO"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p2finger3"
+        app:srcCompat="@drawable/reset" />
+
+    <TextView
+        android:id="@+id/p1winner"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:background="@drawable/button_style_blue"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/imageCheckButton"
+        app:layout_constraintEnd_toStartOf="@+id/p2finger2"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toEndOf="@+id/p1finger2"
+        app:layout_constraintTop_toBottomOf="@+id/winner"
+        app:layout_constraintVertical_bias="0.288"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/p2winner"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:background="@drawable/button_style_red"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/imageCheckButton"
+        app:layout_constraintEnd_toStartOf="@+id/p2finger2"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toEndOf="@+id/p1finger2"
+        app:layout_constraintTop_toBottomOf="@+id/winner"
+        app:layout_constraintVertical_bias="0.287"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Yubi</string>
     <string name="round">1</string>
+    <string name="winner">WINNER</string>
     <string name="point">POINT</string>
     <string name="p1point">0</string>
     <string name="p2point">0</string>
